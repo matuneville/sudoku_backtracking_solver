@@ -87,7 +87,7 @@ Execution time in microseconds: 636
 
 The project includes the source and the executable files for `Rust`.  
 
-In the main code, you can create a new instance of Sudoku, which requires a $9 \times 9$ square grid (`Vec<Vec<u8>>` type). The _.solve()_ method is available, which will solve the sudoku board. 
+In the main code, you can create a new instance of Sudoku, which requires a $9 \times 9$ square grid (`Vec<Vec<u8>>` type). A test function is already written to be run. 
 
 ## Complexity
 
