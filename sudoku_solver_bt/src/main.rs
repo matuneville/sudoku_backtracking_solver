@@ -1,14 +1,13 @@
 mod sudoku;
-
 use crate::sudoku::*;
 
+
 fn main() {
-    println!("Hello, world!");
 
     /*let test_board: Vec<Vec<u8>> = vec![
         vec![0, 0, 0, 6, 0, 9, 0, 3, 0],
         vec![8, 0, 1, 0, 0, 0, 0, 0, 0],
-        vec![0, 0, 0, 7, 0, 0, 0, 6, 0],
+        vec![0, 0, 0, 7, 0, 0, 0, 0, 0],
         vec![0, 6, 0, 5, 0, 0, 0, 7, 0],
         vec![0, 0, 0, 0, 1, 0, 4, 0, 0],
         vec![0, 0, 0, 0, 2, 0, 0, 0, 0],
@@ -31,9 +30,5 @@ fn main() {
 
     let mut game = Sudoku::new(test_board);
 
-    game.solve();
-
-    for row in game.get_board() {
-        println!("{:?}", row);
-    }
+    test_sudoku(&mut game);
 }

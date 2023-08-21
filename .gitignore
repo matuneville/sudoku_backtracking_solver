@@ -1,0 +1,5 @@
+# Rust
+sudoku_solver_bt/target/
+
+# IntelliJ IDEA
+sudoku_solver_bt/.idea/

@@ -1,4 +1,5 @@
 use std::io::empty;
+use std::time::{Instant, Duration};
 
 pub struct Sudoku {
     board: Vec<Vec<u8>>,
@@ -31,7 +32,7 @@ impl Sudoku{
         let pos = self.empty_cells.pop().unwrap();
 
         for number in 1..=9{ // O(1)
-            let pos = (pos.0 as usize, pos.1 as usize); // change type to fit
+            let pos = (pos.0 as usize, pos.1 as usize); // change type to fit indexing
             if self.is_valid_pos(pos.0, pos.1, number){
                 self.board[pos.0][pos.1] = number;
                 if self.solve(){
@@ -85,4 +86,27 @@ impl Clone for Sudoku {
             empty_cells: self.empty_cells.clone(),
         }
     }
+}
+
+pub fn test_sudoku(game: &mut Sudoku){
+
+    let start_time = Instant::now();
+
+    game.solve();
+
+    let end_time = Instant::now();
+
+    let elapsed_time = end_time - start_time;
+
+    let elapsed_time_secs:f32 = elapsed_time.as_secs() as f32;
+    let elapsed_time_ms = elapsed_time.as_millis() as f32;
+    let elapsed_time_mic = elapsed_time.as_micros() as f32;
+
+
+    for row in game.get_board() {
+        println!("{:?}", row);
+    }
+    println!("Execution time in seconds: {}", elapsed_time_secs);
+    println!("Execution time in milliseconds: {}", elapsed_time_ms);
+    println!("Execution time in microseconds: {}", elapsed_time_mic);
 }
